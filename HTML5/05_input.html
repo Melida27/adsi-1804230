@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Elementos de entrada HTML5</title>
+</head>
+<body>
+
+	<form action="" method="post">
+
+<!-- Color -->
+
+	     <h2>Color:</h2>
+	     <input type="color">
+
+<!-- Fecha -->
+
+	     <h2>Fecha:</h2>
+	     <input type="date">
+
+<!-- E-mail -->
+
+	     <h2>E-mail:</h2>
+	     <input type="email" placeholder="Correo Electrónico" required autofocus>
+
+<!-- Month -->
+
+         <h2>Mes:</h2>
+         <input type="month">
+
+<!-- Number -->
+
+         <h2>Número:</h2>
+         <input type="number" min="18" max="96" required>
+
+
+<!-- Rango -->
+
+         <h2>Rango:</h2>
+         <input type="range" step="5" oninput="orango.value=this.value">
+         <output id="orango"></output>
+
+
+<!-- Buscar -->
+
+         <h2>Buscar:</h2>
+         <input type="search">
+
+<!-- Tiempo -->
+
+         <h2>Tiempo:</h2>
+        <input type="time">
+
+<!-- URL -->
+
+         <h2>URL:</h2>
+         <input type="url">
+
+<!-- Semana -->
+
+         <h2>Semana:</h2>
+         <input type="week">
+
+<!-- Lista -->
+         
+         <h2>Lista</h2>
+
+         <input	list=“lenguajes”>	
+         <datalist	id=“lenguajes”>	
+	         <option value=“python”>Python</option>	
+		     <option value=“ruby”>Ruby</option>	
+		     <option value="c#">Sharp</option>
+		     <option value="php">PHP</option>
+         </datalist>
+         
+
+         <br><br>
+         <button type="submit">Validar</button>
+
+     </form>
+</body>
+</html>
