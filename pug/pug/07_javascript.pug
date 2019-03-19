@@ -1,16 +1,16 @@
 doctype
 html(lang="en")
-head
-	meta(charset="UTF-8")
-	title JavaScript
-body
-	h1 JavaScript
-	h3#mensaje
-	script.
-		var mensaje = document.getElementById('mensaje')
-		var nombre = prompt('¿Cuál es su nombre?');
-		if(nombre == 'Melida') {
-		    mensaje.innerHTML = "Bienvenido Estudiante: "+nombre;
-		} else {
-		    mensaje.innerHTML = "Bienvenido: "+nombre;
-		}
+	head
+		meta(charset="UTF-8")
+		title JavaScript
+	body
+		h1 JavaScript
+		h3#mensaje
+		script.
+			var mensaje = document.getElementById('mensaje')
+			var nombre = prompt('¿Cuál es su nombre?');
+			if(nombre == 'Melida') {
+			    mensaje.innerHTML = "Bienvenido Estudiante: "+nombre;
+			} else {
+			    mensaje.innerHTML = "Bienvenido: "+nombre;
+			}
