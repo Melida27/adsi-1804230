@@ -13,6 +13,22 @@
     </ul>
     <footer>
       <p>Lorem ipsum dolor.</p>
-    </footer>
+    </footer><!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+      </head>
+      <body>
+        <h3 id="resultado"></h3>
+        <script>
+          var resultado = document.getElementById('resultado');
+          var horas = prompt("¿Cuál es la cantidad de horas trabajadas?");
+          var valor = prompt("¿Cuál es el valor por hora");
+          var salario = horas*valor;
+          resultado.innerHTML = "Su salario es: "+salario;
+        </script>
+      </body>
+    </html>
   </body>
 </html>
