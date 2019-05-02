@@ -23,7 +23,22 @@
 			</p>
 		</article>
 	</section>
-	
+	<script>
+		var arreglo = [8,1,2,3,4,5,6,7];
+		function ordenamientoBurbuja(arreglo){
+			for(var i = arreglo.length;i>0;i--){
+				for (var j = 0; j < i - 1; j++) {
+					if(arreglo[j] > arreglo[j+1]){
+						var aux = arreglo[j];
+						arreglo[j] = arreglo[j+1];
+						arreglo[j+1] = aux;
+					}
+				}
+          }
+          return arreglo;
+		}
+		document.write("<h1>"+ordenamientoBurbuja(arreglo)+"</h1>");
+	</script>
 	
 </body>
 </html>
