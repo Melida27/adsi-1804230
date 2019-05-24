@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Media Queries</title>
+	<style>
+		* {
+			transition: all 0.5s;
+		}
+		body {
+			background-color: #013571;
+			font: 16px Tahoma;
+		}
+		section.main {
+			width: 960px;
+			margin: 20px auto;
+			border: 10px solid #0177db;
+			color: rgba(255, 255, 255, .6);
+			padding: 14px;
+		}
+		section.main div.logo {
+			background: url(imgs/pepsi01.png) no-repeat center;
+			background-size: contain;
+			height: 300px;
+			margin: 0px auto;
+			width: 780px;
+		}
+		section.main h1 span.r2,
+		section.main h1 span.r3 {
+			display: none;
+		}
+		@media (max-width: 1024px) {
+			section.main {
+				width: 640px;
+			}
+			section.main h1 span.r1,
+			section.main h1 span.r3 {
+				display: none;
+			}
+			section.main h1 span.r2 {
+				display: inline;
+			}
+			section.main div.logo {
+				background: url(imgs/pepsi02.png) no-repeat center;
+				height: 340px;
+				width: 340px;
+			}
+		}
+		
+		@media (max-width: 720px) {
+			section.main {
+				width: 440px;
+			}
+			section.main h1 span.r1,
+			section.main h1 span.r2 {
+				display: none;
+			}
+			section.main h1 span.r3 {
+				display: inline;
+			}
+			section.main div.logo {
+				background: url(imgs/pepsi03.png) no-repeat center;
+				height: 340px;
+				width: 340px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<section class="main">
+		<div class="logo"></div>
+			<h1>
+				Media Queries 
+				<span class="r1">( 1024px )</span>
+				<span class="r2">( 720px )</span>
+				<span class="r3">( 440px )</span>
+			</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, placeat? Animi excepturi inventore ipsa magni ipsum facilis, dicta quam adipisci similique cum praesentium minima, asperiores molestias dolore laborum at dignissimos expedita libero numquam accusantium, natus, nam officiis ab? Aliquid dolorum corrupti, voluptate quos cum dolor velit nostrum repudiandae? Ipsa, velit, quis. Error praesentium dignissimos consectetur ratione, harum ut adipisci iste delectus officiis optio architecto, perspiciatis animi, quae necessitatibus veniam ipsam sunt illo, minus repellendus et sint eum vel possimus ipsa eaque. Dignissimos nesciunt placeat, aut, quis laboriosam enim facilis quasi suscipit, asperiores ipsa ullam aperiam minima expedita harum, perferendis fuga ipsum totam debitis? Fuga placeat architecto labore aspernatur quasi deserunt deleniti reiciendis, enim commodi, explicabo, maxime cumque ipsam vitae facere odio, amet distinctio. Iste quaerat ea a officiis voluptatem minima, assumenda amet nobis alias? Quod aliquam soluta expedita non magnam architecto voluptatem dignissimos veniam delectus tempora exercitationem ex fugiat, sed aut quibusdam earum deleniti libero veritatis numquam? Voluptatum dolorum incidunt, necessitatibus eius eum a nemo consectetur. Voluptate sed assumenda laudantium odit corporis repellat non inventore, distinctio debitis, quia facere et ipsa, consequuntur eum quisquam optio perspiciatis dolor! Officia, odio, vitae! Repellendus placeat fugit nihil consequatur voluptatem sunt suscipit autem officiis!
+			</p>
+	</section>
+</body>
+</html>

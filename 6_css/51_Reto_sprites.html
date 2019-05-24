@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto (Sprite)</title>
+	<link rel="stylesheet" href="00_sprite_style.css">
+</head>
+<body>
+	<section id="global">
+		<header>
+			<div id="logo">
+				
+			</div>
+			<div  id="buscar">
+			  <div id="logo2"></div>	
+			  <input type="search">
+			  <input type="submit" value="Buscar">
+			</div>
+            <nav id="menu">
+            	<ul>
+            		<li><a href="#logo">Inicio</a></li>
+            		<li><a href="#nosotros">Nosotros</a></li>
+            		<li><a href="#servicios">Servicios</a></li>
+            		<li><a href="#contenido">Productos</a></li>
+            		<li><a href="#contacto">Contacto</a></li>
+            	</ul>
+            </nav>
+		</header>
+		<div id="imagen"></div>
+		<hr>
+		<section id="nosotros">
+			<h2>Nosotros</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.!</p>
+		</section>
+		<hr>
+		<section id="servicios">
+			<h2>Servicios</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.!</p>
+		</section>
+		<hr>
+		<section id="contenido">
+			<h2>Productos</h2>
+            <article class="art1">
+            </article>
+            <article class="art2">
+            </article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis corporis commodi natus a voluptates accusamus quo perspiciatis quibusdam soluta at quisquam enim odio tempore repellat sint sunt nisi aperiam, molestias placeat labore cupiditate saepe, autem impedit! Aliquid unde, iste tempora quam eaque. Officiis eius libero commodi praesentium labore est, consequuntur illum nostrum sint aliquid sit, amet, dolorem, dolore doloremque.</p>
+		</section>
+		<hr>
+		<section id="contacto">
+			<h2>Contacto</h2>
+            <form id="formContacto">
+            	<label for="">Nombre:</label><br>
+         		<input type="text"><br><br>
+            	<label for="">Apellidos:</label><br>
+				<input type="text"><br><br>
+            	<label for="">Edad:</label><br>
+				<input type="number"><br><br>
+            	<label for="">Email:</label><br>
+				<input type="email"><br><br>
+            	<label for="">Mensaje:</label><br>
+            	<textarea></textarea><br>
+            	<input type="submit" value="Enviar">
+            </form>
+		</section>
+		<hr>
+        <footer id="footer">
+           Derechos Reservados &copy; Adsi 1804230 <a href="#logo">Ir Inicio</a>
+		</footer>
+	</section>
+		<script>
+		var sprite = document.getElementById("imagen");
+		var actf = 1;
+		var numf = 3;
+		setInterval(function() {
+			sprite.className = '';
+			sprite.classList.add('s'+actf);
+			if(actf == numf) {
+				actf = 1;
+			} else {
+				actf++;
+			}
+		}, 800);
+
+	</script>
+</body>
+</html>

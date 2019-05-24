@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transformar</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+		h1, h3 {
+			text-align: center;
+		}
+		section {
+			border: 2px solid rgba(0,0,0,.2);
+			margin: 20px auto;
+			padding: 20px;
+			width: 500px;
+		}
+		section div {
+			background: url(imgs/card.jpg) no-repeat center;
+			height: 311px;
+			box-shadow: 0px 0px 12px rgba(0,0,0,.8);
+			border-radius: 10px;
+			margin: 20px auto;
+			width: 226px;
+		}
+		div.tf1 {
+			transform: translate(145px, 30px);
+			/*transform: translateX(145px) translateY(30px); */
+		}
+		div.tf2 {
+			transform: rotate(-45deg);
+			/*transform: rotateX() rotateY();*/
+		}
+		div.tf3 {
+			transform: scale(0.5);
+			/*transform: scaleX() scaleY();*/
+		}
+		div.tf4 {
+			transform: skew(10deg);
+		}
+		div.tf5 {
+			transform: scale(0.5) rotate(90deg) skew(10deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>Transformar</h1>
+	<section>
+		<h3>transform: translate(145px, 30px)</h3>
+		<div class="tf1"></div>
+	</section>
+	<section>
+		<h3>transform: rotate(-45deg)</h3>
+		<div class="tf2"></div>
+	</section>
+	<section>
+		<h3>transform: scale(0.5)</h3>
+		<div class="tf3"></div>
+	</section>
+	<section>
+		<h3>transform: skew(10deg)</h3>
+		<div class="tf4"></div>
+	</section>
+	<section>
+		<h3>transform: scale(0.5) rotate(90deg) skew(10deg)</h3>
+		<div class="tf5"></div>
+	</section>
+</body>
+</html>
