@@ -1,0 +1,53 @@
+body {
+  font: 16px Arial;
+}
+
+section {
+  margin: 20px auto;
+  padding: 20px;
+  width: 742px;
+}
+section nav.menu {
+  margin: 0px;
+  padding: 0px;
+}
+section nav.menu ul {
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+  background-color: #40B6B8;
+  width: 742px;
+}
+section nav.menu ul li {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  width: 160px;
+  padding: 10px;
+  border: 1px solid #fff;
+  transition: all 0.5s ease-in;
+  text-align: center;
+  position: relative;
+}
+section nav.menu ul li:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #286B6D;
+}
+section nav.menu ul li ul.submenu {
+  display: none;
+  left: -10px;
+  top: 40px;
+  position: absolute;
+  width: 180px;
+  transition: all 0.5s ease-out;
+}
+section nav.menu ul li:hover > ul.submenu {
+  display: block;
+}
+section nav.menu ul li:hover > ul.submenu li {
+  display: block;
+  margin: 4px 0px;
+}
+section nav.menu ul li:hover > ul.submenu li:hover {
+  background-color: #B9586C;
+}

@@ -1,0 +1,48 @@
+section figure {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+section figure:hover {
+  transform: scale(1.1);
+}
+section figure:hover.filter1 {
+  filter: grayscale(1);
+}
+section figure:hover.filter2 {
+  filter: blur(4px);
+}
+section figure:hover.filter3 {
+  filter: opacity(0.2);
+}
+section figure:hover.filter4 {
+  filter: sepia(1);
+}
+section figure:hover.filter5 {
+  filter: invert(1);
+}
+section figure:hover.filter6 {
+  filter: brightness(2);
+}
+
+body {
+  font: 16px Arial;
+}
+
+section {
+  width: 694.4px;
+  margin: 20px auto;
+}
+section h1 {
+  text-align: center;
+}
+section figure {
+  margin: 10px;
+  padding: 0px;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  border-radius: 100px;
+  background: #fff url(../imgs/opm.gif) no-repeat center;
+  background-size: contain;
+  border: 2px solid grey;
+}

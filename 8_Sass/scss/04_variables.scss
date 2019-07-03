@@ -1,0 +1,60 @@
+//Variables
+$color-menu: #40B6B8;
+$color-submenu: #286B6D;
+$color-submenu-hover: #B9586C;
+
+$ancho-menu: 742px;
+$ancho-submenu: 160px;
+
+body{
+	font: 16px Arial;
+}
+section{
+	margin: 20px auto;
+	padding: 20px;
+	width: 742px;
+	nav.menu {
+		margin: 0px;
+		padding: 0px;
+		ul{
+			list-style: none;
+			margin: 0px;
+			padding: 10px;
+			background-color: $color-menu;
+			width: $ancho-menu;
+			li {
+				display: inline-block;
+				color: rgba(0,0,0,.8);
+				width: $ancho-submenu;
+				padding: 10px;
+				border: 1px solid #fff;
+				transition: all 0.5s ease-in;
+				text-align: center;
+				position: relative;
+				&:hover {
+					cursor: pointer;
+					color: #fff;
+					background-color: $color-submenu;
+				}
+				ul.submenu {
+					display: none;
+					left: -10px;
+					top: 40px;
+					position: absolute;
+					width: 180px;
+					transition: all 0.5s ease-out;
+				}
+				&:hover > ul.submenu {
+					display: block;
+					li {
+						display: block;
+						margin: 4px 0px;
+						&:hover {
+							background-color: $color-submenu-hover;
+						}
+					}
+				}
+			}
+		}
+	}
+}

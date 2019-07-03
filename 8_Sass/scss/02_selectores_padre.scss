@@ -1,0 +1,46 @@
+main{
+	margin: 20px auto;
+	width: 960px;
+	article {
+		display: inline-block;
+		height: 400px;
+		width: calc(960px / 3.1);
+		margin: 2px;
+		overflow: hidden;
+		background-color: #7AC9F7;
+		figure {
+			margin: 0px;
+			padding: 0px;
+			background: url(../imgs/poke.jpg) no-repeat center top;
+			background-size: 120%;
+			height: 400px;
+			transition: all 0.5s ease-in-out;
+			position: relative;
+			div{
+				background-color: rgba(0,0,0,.6);
+				top: -200px;
+				padding: 20px 0px;
+				position: absolute;
+				transition: all 0.4s 0.2s ease-in;
+				text-align: center;
+				width: calc(960px / 3.1);
+			}
+			button{
+				border: 1px solid #fff;
+				border-radius: 20px;
+				background-color: #000;
+				color: #ccc;
+				font-size: 1em;
+				padding: 10px;
+				width: 120px;
+			}
+		}
+		&:hover figure {
+			cursor: pointer;
+			background-size: 93%;
+		}
+		&:hover figure div{
+			top: 0px;
+		}
+	}
+}

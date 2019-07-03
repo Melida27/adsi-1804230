@@ -1,0 +1,103 @@
+body {
+	font: 16px Arial;
+	color: #444;
+}
+h1 {
+	text-align: center;
+}
+main.table {
+	background: url(../imgs/base.png) no-repeat center;
+	height: 720px;
+	width: 639px;
+	margin: 40px auto;
+	position: relative;
+}
+main.table section.attributes {
+	width: 298px;
+	height: 395px;
+	position: absolute;
+	top: 105px;
+	left: 158px;
+}
+section.attributes ul {
+	list-style: none;
+	padding: 0px 0px 0px 20px;
+	margin: 0px;
+}
+section.attributes ul li {
+	padding: 18px 0px;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	color: rgba(0,0,0,.8);
+	text-shadow: 0px 0px 8px #fff;
+}
+main.table section.methods {
+	width: 433px;
+	height: 108px;
+	position: absolute;
+	left: 20px;
+	top: auto;
+	transition: all 0.5s ease;
+	bottom: 18px;
+}
+section.methods button {
+	border: none;
+	height: 64px;
+	margin: 22px 1px 0px 18px;
+	width: 64px;
+	border-radius: 100px;
+}
+section.methods button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+section.methods button#btnOn {
+	background: transparent url(../imgs/btn-play.png) no-repeat center;
+}
+section.methods button#btnOff {
+	background: transparent url(../imgs/btn-off.png) no-repeat center;
+}
+section.methods button#btnStop {
+	background: transparent url(../imgs/btn-stop.png) no-repeat center;
+}
+section.methods button#btnForward {
+	background: transparent url(../imgs/btn-forward.png) no-repeat center;
+}
+section.methods button#btnBackward {
+	background: transparent url(../imgs/btn-backward.png) no-repeat center;
+}
+section#path {
+	position: absolute;
+	top: 350px;
+	left: 0px;
+	width: 250px;
+	height: 130px;
+}
+figure#vhc {
+	background: transparent url(../imgs/cooper.png) no-repeat center;
+	background-size: cover;
+	width: 250px;
+	height: 130px;
+	transform: rotateY(180deg);
+	position: relative;
+}
+figure#vhc.on {
+	animation: animOn 0.1ms 1.5s infinite;
+}
+section#path.forward {
+	animation: animForward 4s linear infinite forwards;
+}
+section#path.backward {
+	animation-direction: reverse;
+}
+section#path.stop {
+	animation-play-state: paused;
+}
+@keyframes animOn {
+	0% 100% {top: 0px;}
+	50% {top: -4px;}
+}
+@keyframes animForward {
+	0% {left: 0px;}
+	100% {left: 1280px;}
+}

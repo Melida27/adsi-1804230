@@ -1,0 +1,52 @@
+$colorFondo: #16b5ac;
+$colorLetra: rgba(255,255,255,.8);
+$anchoDiv: 900px;
+$tipoFuente: Arial;
+$anchoSeccion: 600px;
+$margen: 20px auto;
+$alineacionTexto: center;
+$borde: 1px solid #fff;
+$bordeRadio: 5px;
+$fondo: #000;
+$margenMenu: 30px;
+$tamañoLetra: 1em;
+$relleno: 10px;
+$anchoMenu: 120px;
+
+body {
+	background-color: $colorFondo;
+}
+h1 {
+	text-align: $alineacionTexto;
+	color: $colorLetra;
+}
+div {
+	width:$anchoDiv;
+	margin: $margen;
+	font-family: $tipoFuente
+}
+section {
+	width: $anchoSeccion;
+	margin: $margen;
+}
+a {
+	border: $borde;
+	border-radius: $bordeRadio;
+	background-color: $fondo;
+	color: $colorLetra;
+	font-size: $tamañoLetra;
+	padding: $relleno;
+	width: $anchoMenu;
+	text-decoration: none;
+	margin-left: $margenMenu;
+}
+select {
+	border: $borde;
+	border-radius: $bordeRadio;
+	background-color: $fondo;
+	color: $colorLetra;
+	font-size: $tamañoLetra;
+	padding: $relleno;
+	width: $anchoMenu;
+	margin-left: $margenMenu;
+}

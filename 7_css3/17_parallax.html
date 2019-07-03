@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animación Parallax</title>
+	<style>
+		section.parallax {
+			height: 768px;
+			margin: 20px auto;
+			overflow: hidden;
+			position: relative;
+			width: 1024px;
+		}
+		section.parallax div{
+			background-repeat: repeat-x;
+			position: absolute;
+			height: 768px;
+			width: 1536px;
+			background-position: center;
+		}
+		section.parallax div.cielo {
+			background: url(imgs/4-cielo.png);
+			z-index: 1;
+			/*-----------------------------------*/
+			animation: animParallax 90s linear infinite;
+		}
+		section.parallax div.montanas {
+			background: url(imgs/3-montanas.png);
+			z-index: 2;
+			/*-----------------------------------*/
+			animation: animParallax 80s linear infinite;
+		}
+		section.parallax div.arboles {
+			background: url(imgs/2-arboles.png);
+			z-index: 3;
+			/*-----------------------------------*/
+			animation: animParallax 40s linear infinite;
+		}
+		section.parallax div.terreno {
+			background: url(imgs/1-terreno.png);
+			z-index: 4;
+			/*-----------------------------------*/
+			animation: animParallax 10s linear infinite;
+		}
+		@keyframes animParallax {
+			0%{background-position: 0px 0px; }
+			100%{background-position: -2048px 0px;}
+		}
+	</style>
+</head>
+<body>
+	<h1>Animación Parallax</h1>
+	<section class="parallax">
+		<div class="cielo"></div>
+		<div class="montanas"></div>
+		<div class="arboles"></div>
+		<div class="terreno"></div>
+	</section>
+</body>
+</html>

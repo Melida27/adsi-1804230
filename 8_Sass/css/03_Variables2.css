@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+}
+
+#header {
+  margin: 0px auto;
+  width: 600px;
+  height: 60px;
+  font-family: arial;
+}
+
+ul {
+  list-style: none;
+}
+
+#nav li a {
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#nav > li {
+  display: inline-block;
+  margin-left: 30px;
+  padding-left: 10px;
+}
+
+#nav li ul {
+  display: none;
+  position: absolute;
+  margin-left: -50px;
+}
+
+#nav li ul li ul {
+  right: -80px;
+  top: 0px;
+}
+
+#nav li:hover > ul {
+  display: block;
+}
+
+#nav {
+  background-color: black;
+}
+
+#nav a:hover {
+  background: grey;
+}
