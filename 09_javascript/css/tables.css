@@ -1,0 +1,23 @@
+table {
+	border-collapse: collapse;
+	border: 1px solid grey;
+	width: 600px;
+	margin: 40px auto;
+}
+th,td {
+	padding: 10px;
+	border: 1px solid grey;
+	text-align: center;
+}
+th {
+	background-color: #333;
+	color: #eee;
+}
+tbody tr:nth-child(even){
+	background-color: #ddd;
+}
+thead input{
+	padding: 10px;
+	border-radius: 4px;
+	border: none;
+}

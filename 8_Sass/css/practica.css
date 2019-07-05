@@ -1,0 +1,103 @@
+body {
+  text-align: center;
+  background-color: #F37DC0;
+}
+
+main {
+  margin: 30px auto;
+  width: 600px;
+  height: 600px;
+  border: 4px solid #F560B5;
+  background-color: #E6DFDF;
+  border-radius: 100%;
+}
+main h1 {
+  text-shadow: 2px 2px 10px #31E4E6;
+}
+
+main table {
+  margin: 20px auto;
+  border-right: dashed red;
+  border-left: dotted green;
+  border-top: solid blue;
+  border-bottom: solid #0000FF;
+  box-shadow: 8px 8px 8px 8px rgba(0, 0, 255, 0.3);
+}
+
+table td {
+  border: 2px solid black;
+  width: 140px;
+  height: 140px;
+}
+
+table tr:nth-child(1) td:nth-child(1) {
+  background-color: #ff1400;
+}
+table tr:nth-child(1) td:hover:nth-child(1) {
+  cursor: pointer;
+  background-color: #ff1464;
+}
+table tr:nth-child(1) td:nth-child(2) {
+  background-color: #ff2800;
+}
+table tr:nth-child(1) td:hover:nth-child(2) {
+  cursor: pointer;
+  background-color: #ff28c8;
+}
+table tr:nth-child(1) td:nth-child(3) {
+  background-color: #ff3c00;
+}
+table tr:nth-child(1) td:hover:nth-child(3) {
+  cursor: pointer;
+  background-color: #ff3cff;
+}
+
+table tr:nth-child(2) td:nth-child(1) {
+  background-color: #6414c8;
+  border-radius: 10%;
+}
+table tr:nth-child(2) td:hover:nth-child(1) {
+  cursor: pointer;
+  background-color: #96640a;
+}
+table tr:nth-child(2) td:nth-child(2) {
+  background-color: #6428c8;
+  border-radius: 20%;
+}
+table tr:nth-child(2) td:hover:nth-child(2) {
+  cursor: pointer;
+  background-color: #96c80a;
+}
+table tr:nth-child(2) td:nth-child(3) {
+  background-color: #643cc8;
+  border-radius: 30%;
+}
+table tr:nth-child(2) td:hover:nth-child(3) {
+  cursor: pointer;
+  background-color: #96ff0a;
+}
+
+table tr:nth-child(3) td:nth-child(1) {
+  background-color: #1ec80a;
+  border-radius: 10px;
+}
+table tr:nth-child(3) td:hover:nth-child(1) {
+  cursor: pointer;
+  background-color: #1e1e1e;
+}
+table tr:nth-child(3) td:nth-child(2) {
+  background-color: #1eff0a;
+  border-radius: 20px;
+}
+table tr:nth-child(3) td:hover:nth-child(2) {
+  cursor: pointer;
+  background-color: #1e3c1e;
+}
+table tr:nth-child(3) td:nth-child(3) {
+  background-color: #1eff0a;
+  border-radius: 30px;
+}
+table tr:nth-child(3) td:hover:nth-child(3) {
+  cursor: pointer;
+  background-color: #1e5a1e;
+}
