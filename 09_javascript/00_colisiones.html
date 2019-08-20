@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html {
+			font-size: 62.5%;
+		}
+		body {
+			font: 1.4rem Tahoma;
+		}
+		div {
+			height: 100px;
+			position: relative;
+			width: 100px;
+		}
+		div#element1 {
+			background-color: #0a4;
+			left: 0px;
+			top: 0px;
+		}
+		div#element2 {
+			background-color: #d20;
+			left: 120px;
+			top: -100px;
+		}
+	</style>
+</head>
+<body id="bdy">
+	<div id="element1"></div>
+	<div id="element2"></div>
+	<p>Nota: Mover con las teclas de direcciones...</p>
+	<hr>
+	<h3 id="result"></h3>
+
+	<script>
+		var result   = document.getElementById('result');
+		var element1 = document.getElementById('element1');
+		var element2 = document.getElementById('element2');
+		var bdy      = document.getElementById('bdy');
+		var post     = 0;
+		var posl     = 0;
+
+
+		function collidesWith (element1, element2) {
+
+			element1top    = element1.offsetTop;
+			element1left   = element1.offsetLeft;
+			element1right  = Number(element1.offsetLeft) + Number(element1.offsetWidth);
+			element1bottom = Number(element1.offsetTop)  + Number(element1.offsetHeight);
+
+			element2top    = element2.offsetTop;
+			element2left   = element2.offsetLeft;
+			element2right  = Number(element2.offsetLeft) + Number(element2.offsetWidth);
+			element2bottom = Number(element2.offsetTop)  + Number(element2.offsetHeight);
+
+			if (element1right  > element2left   && 
+				element1left   < element2right  && 
+				element1top    < element2bottom && 
+				element1bottom > element2top ) {
+				result.innerHTML = "Colisión: SI!";
+		} else {
+			result.innerHTML = "Colisión: NO!";
+		}
+		}
+
+	bdy.onkeyup = function(e) {
+		var kcod = e.keyCode;
+		if (kcod == 37) {
+			posl -= 40;
+			element1.style.left = posl+'px';
+		}
+		if (kcod == 38) {
+			post -= 40;
+			element1.style.top = post+'px';
+		}
+		if (kcod == 39) {
+			posl += 40;
+			element1.style.left = posl+'px';
+		}
+		if (kcod == 40) {
+			post += 40;
+			element1.style.top = post+'px';
+		}
+		if (kcod > 36 && kcod < 41) {
+			collidesWith(element1, element2);
+		}
+	}
+
+</script>
+</body>
+</html>
