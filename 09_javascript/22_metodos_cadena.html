@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos (Cadena)</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<main>
+		<h1>Métodos (Cadena)</h1>
+		<textarea id="string" cols="60" rows="4" placeholder="Ingresar Texto"></textarea>
+		<br>
+		<br>
+		<label for="toLower">
+			<input type="radio" id="toLower" value="tl" name="transf">minúscula
+		</label>
+		<br>
+		<label for="toUpper">
+			<input type="radio" id="toUpper" value="tu" name="transf">MAYÚSCULA
+		</label>
+		<br>
+		<br>
+		<input type="text" id="oword" placeholder="Palabra Origen">
+		por
+		<input type="text" id="rword" placeholder="Palabra Reemplazo">
+		<br>
+		<br>
+		<input type="number" id="ni" placeholder="Pos Inicial">
+		hasta
+		<input type="number" id="nf" placeholder="Pos Final">
+		<br>
+		<br>
+		<button id="btnAnalize">Analizar Cadena</button>
+		<ul id="data"></ul>
+	</main>
+
+	<script>
+		//vARIABLES
+		var string = document.getElementById('string');
+		var toLower = document.getElementById('toLower');
+		var toUpper = document.getElementById('toUpper');
+		var btnAnalize = document.getElementById('btnAnalize');
+		var data = document.getElementById('data');
+		var pword = document.getElementById('oword');
+		var rword = document.getElementById('rword');
+
+		var upper = false;
+
+		//EVENTOS
+		toLower.onchange = function(){
+			upper = false;
+		}
+		toUpper.onchange = function(){
+			upper = true;
+		}
+		btnAnalize.onclick = function(){
+			var tstring = string.value;
+			var toword = oword.value;
+			var trword = rword.value;
+			var tni = parseInt(ni.value);
+			var tnf = parseInt(nf.value);
+
+			if(upper){
+				data.innerHTML = "<li>"+tstring.toUpperCase()+"</li>";
+			} else {
+				data.innerHTML = "<li>"+tstring.toLowerCase()+"</li>";
+			}
+			data.innerHTML += "<li>Longitud de cadena: "+tstring.length+" caracteres</li>";
+			data.innerHTML += "<li>Cadena Reemplazo: "+tstring.replace(toword, trword)+"</li>";
+			data.innerHTML += "<li>Cadena Cortada: "+tstring.substring(tni, tnf)+"</li>"
+		}
+	</script>
+</body>
+</html>

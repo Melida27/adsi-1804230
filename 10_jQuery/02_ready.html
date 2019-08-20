@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Función (Ready)</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<main>
+		<h1>Función (Ready)</h1>
+		<h4></h4>
+	</main>
+
+	<script src="js/jquery-3.4.1.js"></script>
+
+	<script>
+		//Forma tradicional
+		$(document).ready(function(){
+			$('h4').text('La página ha cargado completamente!');
+		});
+		//Forma corta
+		$(function(){
+			$('h4').hide().fadeIn(2000);
+		});
+	</script>
+</body>
+</html>

@@ -25,6 +25,9 @@ var btnClear = document.getElementById('btnClear');
 var btnAClear = document.getElementById('btnAClear');
 var btnDiv = document.getElementById('btnDiv');
 
+var keyCode;
+var key;
+
 //Variables Lógicas
 var lDisplay = 0;
 var allowOper = false;
@@ -38,6 +41,77 @@ function validateLength(){
 		return false;
 	}
 }
+
+addEventListener("keyup", function(event){
+   keyCode = event.keyCode;
+   key = event.key;
+   console.log(keyCode);
+   console.log(event);
+
+   if(key == 7){
+       addToDisplay(7);
+   }
+   if(key == 8){
+       addToDisplay(8);
+   }
+   if(key == 9){
+       addToDisplay(9);
+   }
+   if(key == 4){
+       addToDisplay(4);
+   }
+   if(key == 5){
+       addToDisplay(5);
+   }
+   if(key == 6){
+       addToDisplay(6);
+   }
+   if(key == 1){
+       addToDisplay(1);
+   }
+   if(key == 2){
+       addToDisplay(2);
+   }
+   if(key == 3){
+       addToDisplay(3);
+   }
+   if(key == 0){
+       addToDisplay(0);
+   }
+   if(key == "%"){
+       addToDisplay('%');
+   }
+   if(key == "*"){
+       addToDisplay('*');
+   }
+   if(key == "-"){
+       addToDisplay('-');
+   } 
+   if(key == "."){
+       addToDisplay('.');
+   } 
+   if(key == "+"){
+       addToDisplay('+');
+   }
+   if(key == "/"){
+       addToDisplay('/');
+   } 
+   if(keyCode == 13){
+   	display.innerHTML = eval(display.value);
+	lDisplay = display.value.length;
+  }
+  if(keyCode == 46){
+  	display.innerHTML = '';
+	lDisplay = 0;
+  }
+  if(keyCode == 8){
+  	if(lDisplay > 0){
+		display.value = display.value.slice(0, -1);
+		lDisplay--;
+	}
+  }
+});
+
 function addToDisplay(n){
 	if(n.constructor.name == 'Number'){
 		allowOper = true;
@@ -51,6 +125,8 @@ function addToDisplay(n){
 		}
 	}	
 }
+
+
 
 btn7.onclick = function(){
 	addToDisplay(7);
@@ -100,6 +176,7 @@ btnDot.onclick = function(){
 btnSum.onclick = function(){
 	addToDisplay('+');
 }
+
 btnEqual.onclick = function(){
 	display.innerHTML = eval(display.value);
 	lDisplay = display.value.length;

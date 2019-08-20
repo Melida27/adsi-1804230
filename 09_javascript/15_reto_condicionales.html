@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto (Condicionales)</title>
+	<link rel="stylesheet" href="css/gowar.css">
+</head>
+<body>
+	<main class="gowar">
+		<input type="number" id="age">
+		<figure id="female"></figure>
+		<figure id="male"></figure>
+		<button id="calc"></button>
+	</main>
+
+	<script>
+		//Variables
+		var female = document.getElementById('female');
+		var male = document.getElementById('male');
+		var calc = document.getElementById('calc');
+		var gender = null;
+
+		//Eventos
+		female.onclick = function(){
+			this.classList.add('active');
+			male.classList.remove('active');
+			gender = 'female';
+		}
+
+		male.onclick = function(){
+			this.classList.add('active');
+			female.classList.remove('active');
+			gender = 'male';
+		}
+		
+		calc.onclick = function(){
+			var age = document.getElementById('age').value;
+
+			if(age.length > 0 && gender != null){
+				if(gender == 'male'){
+					if (age<18) {
+						alert('No tiene edad suficiente para ir a la guerra');
+					}else if(age > 18 && age <= 60){
+						alert('Va a la guerra');
+					}else if(age > 60){
+						alert('Está muy mayor para ir a la guerra');
+					}else {
+						alert('Verifique la edad');
+					}
+				}else {
+					alert('Las mujeres no van a la guerra');
+				}
+			} else {
+				alert('Debe ingresar la edad y seleccionar el genero');
+			}
+		}
+	</script>
+</body>
+</html>

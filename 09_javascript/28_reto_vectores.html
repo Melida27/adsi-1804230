@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto (Vectores)</title>
+	<style>
+		body{
+			background-image: url(imgs/vectors/bg.png);
+		}
+		h1 {
+			text-align: center;
+			font-size: 2em;
+		}
+		section.container {
+			width: 1200px;
+			margin: 0px auto;
+		}
+		main {
+			width: 500px;
+			height: 600px;
+			display: inline-block;
+			margin: 10px auto;
+			vertical-align: top;
+			margin-left: 60px;
+		}
+		main.vectors{
+			background: url(imgs/vectors/bgleft.png) no-repeat center;
+			background-size: contain;
+			position: relative;
+		}
+		main.list {
+			background: url(imgs/vectors/bgright.png) no-repeat center;
+			background-size: contain;
+			overflow: auto;
+		}
+
+		ul.pokemons{
+			position: absolute;
+			height: 170px;
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+			width: 350px;
+			top: 120px;
+			left: 80px;
+		}
+		ul.pokemons li.pk{
+			border-radius: 40px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			display: inline-block;
+			height: 70px;
+			margin: 6px;
+			width: 70px;
+			transition: all 0.5s ease-out;
+			filter: grayscale(1);
+		}
+
+		ul.pokemons li.pk1 {background-image: url(imgs/vectors/pk1.png);}
+		ul.pokemons li.pk2 {background-image: url(imgs/vectors/pk2.png);}
+		ul.pokemons li.pk3 {background-image: url(imgs/vectors/pk3.png);}
+		ul.pokemons li.pk4 {background-image: url(imgs/vectors/pk4.png);}
+		ul.pokemons li.pk5 {background-image: url(imgs/vectors/pk5.png);}
+		ul.pokemons li.pk6 {background-image: url(imgs/vectors/pk6.png);}
+		ul.pokemons li.pk7 {background-image: url(imgs/vectors/pk7.png);}
+		ul.pokemons li.pk8 {background-image: url(imgs/vectors/pk8.png);}
+
+		ul.pokemons li.pk:hover,
+		ul.pokemons li.pk.active{
+			cursor: pointer;
+			filter: grayscale(0);
+			transform: scale(1.2);
+		}
+
+		select#options{
+			-webkit-appearance: none;
+			border: none;
+			outline: none;
+			text-indent: 20px;
+			background: url(imgs/vectors/select.png) no-repeat center;
+			background-size: 100%;
+			position: absolute;
+			bottom: 110px;
+			width: 360px;
+			left: 70px;
+			height: 50px;
+		}
+
+		section.btns {
+			position: absolute;
+			bottom: 20px;
+			left: 85px;
+		}
+
+		section.btns button{
+			width: 150px;
+			height: 50px;
+			border: none;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
+			opacity: .8;
+			background-color: transparent;
+			transition: all 0.5s ease-in;
+		}
+
+		section.btns button#btnAdd {
+			background-image: url(imgs/vectors/add.png);
+			margin-right: 20px;
+		}
+		section.btns button#btnDelete {
+			background-image: url(imgs/vectors/delete.png);
+		}
+		section.btns button:hover{
+			cursor: pointer;
+			transform: scale(1.05);
+		}
+		ul#pksContainer{
+			width: 100px;
+			margin-top: 120px;
+			margin-left: 175px;
+		}
+
+		ul#pksContainer li.pk1 {background-image: url(imgs/vectors/pk1.png);}
+		ul#pksContainer li.pk2 {background-image: url(imgs/vectors/pk2.png);}
+		ul#pksContainer li.pk3 {background-image: url(imgs/vectors/pk3.png);}
+		ul#pksContainer li.pk4 {background-image: url(imgs/vectors/pk4.png);}
+		ul#pksContainer li.pk5 {background-image: url(imgs/vectors/pk5.png);}
+		ul#pksContainer li.pk6 {background-image: url(imgs/vectors/pk6.png);}
+		ul#pksContainer li.pk7 {background-image: url(imgs/vectors/pk7.png);}
+		ul#pksContainer li.pk8 {background-image: url(imgs/vectors/pk8.png);}
+
+		ul#pksContainer li.pk{
+			border-radius: 40px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			display: block;
+			height: 70px;
+			margin: 6px;
+			width: 70px;
+			transition: all 0.5s ease-out;
+		}
+
+		ul#pksContainer li.pk{
+			cursor: pointer;
+			filter: grayscale(0);
+			transform: scale(1);
+		}
+	</style>
+</head>
+<body>
+	<h1>Reto (Vectores)</h1>
+	<section class="container">
+		<main class="vectors">
+			<ul class="pokemons">
+				<li class="pk pk1"></li>
+				<li class="pk pk2"></li>
+				<li class="pk pk3"></li>
+				<li class="pk pk4"></li>
+				<li class="pk pk5"></li>
+				<li class="pk pk6"></li>
+				<li class="pk pk7"></li>
+				<li class="pk pk8"></li>
+			</ul>
+			<select id="options">
+				<option >Seleccione...</option>
+				<option value="1">Inicio</option>
+				<option value="2">Final</option>
+			</select>
+			<section class="btns">
+				<button id="btnAdd" onclick="adicionarElementos();"></button>
+				<button id="btnDelete" onclick="eliminarElementos()"></button>
+			</section>
+		</main>
+
+		<main class="list">
+			<ul id="pksContainer"></ul>
+		</main>
+	</section>
+	
+	<script>
+		//Variables
+		var pks = document.getElementsByTagName('li');
+		var pksArray = [];
+		var pksContainer = document.getElementById('pksContainer');
+		var options = document.getElementById("options");
+
+		for(var i = 0; i < pks.length; i++){
+			pks[i].onclick = function(){
+				removeActive();
+				this.classList.add('active');
+			}
+		}
+
+		//Funciones
+		function removeActive(){
+			for(var i = 0; i < pks.length; i++){
+				pks[i].classList.remove('active');
+			}
+		}
+
+		function adicionarElementos(){		
+			var pokActive = document.querySelector('.active');
+			if(pokActive != null){
+
+				if(options.value == "1"){
+					pksArray.unshift(pokActive);
+				}else {
+					pksArray.push(pokActive); 
+				}
+				mostrarElementos(); 
+			}	
+		}
+
+		function mostrarElementos(){
+			pksContainer.innerHTML = "";
+			for (var i = 0; i < pksArray.length; i++) {
+				// pksContainer.innerHTML += pksArray[i];
+				// console.log();
+				var element = document.createElement('li');
+				console.log(pksArray[i].classList);
+				element.classList.add(pksArray[i].classList[0]);
+				element.classList.add(pksArray[i].classList[1]);
+				element.classList.add("active");
+
+				pksContainer.appendChild(element);
+			}
+		}
+
+		function eliminarElementos(){
+
+				if(options.value == "1"){
+					pksArray.shift();
+				}else {
+					pksArray.pop();
+				}
+				mostrarElementos(); 
+			}
+	</script>
+	
+</body>
+</html>
