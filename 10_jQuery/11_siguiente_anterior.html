@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Siguiente/Anterior (Recorrer DOM)</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<style>
+		main{
+			width: 1024px;
+		}
+		/*section.sliders*/
+		section.sliders{
+			height: 362px;
+			width: 1024px;
+			margin: 0px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		/*section.sliders figure*/
+		section.sliders figure{
+			margin: 0px;
+			position: relative;
+		}
+		/*section.sliders figure:hover figcaption*/
+		section.sliders figure:hover figcaption{
+			bottom: 0px;
+		}
+		/*section.sliders figure figcaption*/
+		section.sliders figure figcaption{
+			position: absolute;
+			bottom: -120px;
+			background-color: rgba(0,0,0,.6);
+			color: rgba(255,255,255,.8);
+			width: 1004px;
+			padding: 10px;
+			height: 100px;
+			transition: all 0.5s ease-in;
+		}
+		/*section.sliders figure figcaption h4*/
+		section.sliders figure figcaption h4{
+			text-align: left;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			margin: 0px;
+			border-bottom: 1px dashed rgba(255,255,255,.2);
+		}
+		/*section.sliders figure figcaption p*/
+		section.sliders figure figcaption p{
+			text-align: justify;
+		}
+		/*section.sliders div.controls*/
+		section.sliders div.controls{
+			position: absolute;
+			top: 55px;
+			z-index: 99;
+			width: 1024px;
+		}
+		/*section.sliders div.controls button*/
+		section.sliders div.controls button{
+			width: 66px;
+			height: 141px;
+			transition: all 0.5s ease-in;
+			border: none;
+			background: transparent;
+			position: absolute;
+			opacity: 0.8;
+		}
+		/*section.sliders div.controls button:hover*/
+		section.sliders div.controls button:hover{
+			cursor: pointer;
+			transform: scale(1.1);
+			opacity: 1;
+		}
+		/*section.sliders div.controls button.btn-prev*/
+		section.sliders div.controls button.btn-prev{
+			background: url(imgs/slider/btn-prev.png) no-repeat center;
+		}
+		/*section.sliders div.controls button.btn-next*/
+		section.sliders div.controls button.btn-next{
+			background: url(imgs/slider/btn-next.png) no-repeat center;
+			right: 0px;
+		}
+		/*section.sliders div.dots*/
+		section.sliders div.dots{
+			position: absolute;
+			top: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 140px;
+			z-index: 99;
+		}
+		/*section.sliders div.dots button*/
+		section.sliders div.dots button{
+			border: none;
+			background-color: rgba(255,255,255,.6);
+			border-radius: 20px;
+			width: 24px;
+			height: 24px;
+			font-weight: bold;
+			transition: all 0.2s ease-out;
+		}
+		/*section.sliders div.dots button:hover*/
+		section.sliders div.dots button:hover{
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+		/*section.sliders div.dots button.active*/
+		section.sliders div.dots button.active{
+			background-color: rgba(0,0,0,.8);
+			color: #fff;
+		}
+		/*section.sliders button.btn-play*/
+		section.sliders button.btn-play{
+			position: absolute;
+			top: 10px;
+			border: none;
+			border-radius: 20px;
+			background-color: rgb(255,255,255,.6);
+			left: 10px;
+			font-weight: bold;
+			height: 24px;
+			transition: all 0.2s ease-out;
+			width: 120px;
+		}
+		section.sliders button.btn-play:hover{
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Siguiente/Anterior (Recorrer DOM)</h1>
+		<section class="sliders">
+			<figure class="slider1 active" >
+				<img src="imgs/slider/slider1.png">
+				<figcaption>
+					<h4>Pikachu</h4>
+					<p>“Cada vez que un Pikachu se encuentra con algo nuevo, le lanza una descarga eléctrica. Cuando se ve alguna baya chamuscada, es muy probable que sea obra de un Pikachu, ya que a veces no controlan la intensidad de la descarga.”</p>
+				</figcaption>
+			</figure>
+
+			<figure class="slider2">
+				<img src="imgs/slider/slider2.png">
+				<figcaption>
+					<h4>Bulbasaur</h4>
+					<p>“A Bulbasaur es fácil verle echándose una siesta al sol. La semilla que tiene en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol”.</p>
+				</figcaption>
+			</figure>
+
+			<figure class="slider3">
+				<img src="imgs/slider/slider3.png">
+				<figcaption>
+					<h4>Jigglypuff</h4>
+					<p>“Jigglypuff tiene unas cuerdas vocales que ajustan sin problema la longitud de onda de su voz. Este Pokémon usa la habilidad que tiene para cantar con la longitud de onda necesaria para adormecer a su rival”.</p>
+				</figcaption>
+			</figure>
+
+			<figure class="slider4">
+				<img src="imgs/slider/slider4.png">
+				<figcaption>
+					<h4>Togepi</h4>
+					<p>“Togepi usa los sentimientos positivos de compasión y alegría que desprenden las personas y los Pokémon. Este Pokémon almacena sentimientos de felicidad en su interior y después los comparte con otros.”</p>
+				</figcaption>
+			</figure>
+
+			<figure class="slider5">
+				<img src="imgs/slider/slider5.png">
+				<figcaption>
+					<h4>Charmander</h4>
+					<p>“La llama que tiene en la punta de la cola arde según sus sentimientos. Llamea levemente cuando está alegre y arde vigorosamente cuando está enfadado”.</p>
+				</figcaption>
+			</figure>
+
+			<div class="controls">
+				<button class="btn-prev"></button>
+				<button class="btn-next"></button>
+			</div>
+
+			<div class="dots">
+				<button class="dot1 active">1</button>
+				<button class="dot2">2</button>
+				<button class="dot3">3</button>
+				<button class="dot4">4</button>
+				<button class="dot5">5</button>
+			</div>
+
+			<button class="btn-play">&rtrif; AutoPlay</button>
+		</section>
+	</main>
+
+	<script src="js/jquery-3.4.1.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			//Variables
+			$numSliders      = $('figure').length; //Número de sliders
+			$activeSlider    = $('figure.active'); //Slider Activado
+			$numActiveSlider = 1; //Número del Slider activo
+
+			//Lógica
+			//------------------------------------------------------------------------
+			$('figure').not('.active').hide(); //Ocultar todos los Sliders menos el activo
+
+			//Eventos
+			//------------------------------------------------------------------------
+			$('.btn-next').click(function(event) {
+				if($numActiveSlider < $numSliders){
+					$numActiveSlider++;
+					$activeSlider.hide().removeClass('active');
+					$activeSlider.next().addClass('active').fadeIn(1000);	
+				}else{
+					$numActiveSlider = 1;
+					$activeSlider.hide().removeClass('active');
+					$('figure').first().addClass('active').fadeIn(1000);
+				}
+				$activeSlider = $('figure.active');
+				activeNumberSlider();
+			});
+			//------------------------------------------------------------------------
+			$('.btn-prev').click(function(event) {
+				if($numActiveSlider > 1){
+					$numActiveSlider--;
+					$activeSlider.hide().removeClass('active');
+					$activeSlider.prev().addClass('active').fadeIn(1000);	
+				}else{
+					$numActiveSlider = 5;
+					$activeSlider.hide().removeClass('active');
+					$('figure').last().addClass('active').fadeIn(1000);
+				}
+				$activeSlider = $('figure.active');
+				activeNumberSlider();
+			});
+			//------------------------------------------------------------------------
+			$('div.dots button').click(function(event) {
+				$('div.dots button').removeClass('active');
+				$(this).addClass('active');
+				$numActiveSlider = parseInt($(this).text());
+				$activeSlider.hide().removeClass('active');
+				$('figure').eq($numActiveSlider-1).addClass('active').fadeIn(1000);
+				$activeSlider = $('figure.active');
+			});
+			//------------------------------------------------------------------------
+			$('.btn-play').click(function(event) {
+				$(this).toggleClass('autoplay');
+				if($(this).hasClass('autoplay')){
+					$(this).html('&FilledSmallSquare; Stop');
+					$intsliders = setInterval(function(){
+						if($numActiveSlider < $numSliders){
+							$numActiveSlider++;
+							$activeSlider.hide().removeClass('active');
+							$activeSlider.next().addClass('active').fadeIn(1000);	
+						}else{
+							$numActiveSlider = 1;
+							$activeSlider.hide().removeClass('active');
+							$('figure').first().addClass('active').fadeIn(1000);
+						}
+						$activeSlider = $('figure.active');
+						activeNumberSlider();
+					},1000);
+				}else{
+					$(this).html('&rtrif; AutoPlay');
+					clearInterval($intsliders);
+				}	
+			});
+			
+			//Funciones
+			//------------------------------------------------------------------------
+			function activeNumberSlider(){
+				$('div.dots button').removeClass('active');
+				$('div.dots button').each(function(index, el) {
+					if($numActiveSlider == index+1){
+						$(el).addClass('active');
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

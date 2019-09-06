@@ -1,0 +1,23 @@
+{
+  "name": "hungrypig",
+  "version": "1.0.0",
+  "description": "Hungry pig",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Melida",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^6.0.7",
+    "electron-packager": "^14.0.5"
+  }
+}
