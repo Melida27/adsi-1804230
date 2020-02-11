@@ -109,6 +109,42 @@
 				snapMode: 'inner',
 				revert: 'invalid'
 			});
+
+			$('.stage2').droppable({
+               accept: '.pk11,.pk21,.pk31',
+               drop: function(evt, ui){
+               	  let pkDrag = ui.draggable[0];
+               	  console.log(pkDrag);
+               	  if($(pkDrag).hasClass('pk11')){
+               	  	$(pkDrag).removeClass('pk11');
+               	  	$(pkDrag).addClass('pk12');
+               	  }else if($(pkDrag).hasClass('pk21')){
+               	  	$(pkDrag).removeClass('pk21');
+               	  	$(pkDrag).addClass('pk22');
+               	  }else if($(pkDrag).hasClass('pk31')){
+               	  	$(pkDrag).removeClass('pk31');
+               	  	$(pkDrag).addClass('pk32');
+               	  }
+               	  console.log();
+               }
+			});
+			$('.stage3').droppable({
+               accept: '.pk12,.pk22,.pk32',
+               drop: function(evt, ui){
+               	  let pkDrag = ui.draggable[0];
+               	  if($(pkDrag).hasClass('pk12')){
+               	  	$(pkDrag).removeClass('pk12');
+               	  	$(pkDrag).addClass('pk13');
+               	  }else if($(pkDrag).hasClass('pk22')){
+               	  	$(pkDrag).removeClass('pk22');
+               	  	$(pkDrag).addClass('pk23');
+               	  }else if($(pkDrag).hasClass('pk32')){
+               	  	$(pkDrag).removeClass('pk32');
+               	  	$(pkDrag).addClass('pk33');
+               	  }
+               	  console.log();
+               }
+			});
 		});
 	</script>
 </body>

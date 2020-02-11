@@ -1,0 +1,9 @@
+<main role="main" class="container mt-5">
+  <div class="jumbotron">
+    <h1>Server Side Include</h1>
+    <p class="lead text-justify">
+    	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus atque libero et debitis deleniti quos cum tempora. Corporis, temporibus culpa reprehenderit modi. Laboriosam distinctio, voluptas corporis dolorem accusantium ab voluptates nostrum officiis nesciunt repellendus magni pariatur expedita maiores ipsam nam sint, quisquam quod esse iure error accusamus facilis repellat placeat suscipit. Atque deserunt sed voluptatum quia quas illo vel commodi a vero minima cum eius error optio, suscipit corporis obcaecati molestiae doloremque id porro vitae maiores expedita adipisci officiis. Ad consequatur pariatur, et quo explicabo fugiat quod cum nostrum dignissimos maiores est hic culpa doloribus soluta natus, quaerat voluptatem quisquam nisi porro fuga repellat delectus enim doloremque. Quidem vel aspernatur, qui magnam ut, nulla provident veniam rem cupiditate nam saepe numquam impedit dolorem iusto totam perferendis sint. Eius esse distinctio debitis doloremque assumenda officiis fuga nobis voluptates perspiciatis ex placeat animi deserunt, laudantium sint explicabo. Voluptatibus itaque assumenda quos praesentium deleniti perspiciatis eos a molestias veniam accusamus sapiente quia iure cumque quibusdam laborum saepe est odio quae amet repudiandae, laudantium provident quod. Itaque consequatur odio laudantium ut at asperiores, animi dolor ex et quos porro alias quasi eius voluptatem illum incidunt tempore, reprehenderit minus ullam accusantium. Consectetur culpa, error cupiditate!
+	</p>
+    <a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">Ver &raquo;</a>
+  </div>
+</main>
