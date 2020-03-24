@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('usuarios', function (){
+	//$users = App\User::all();
+	$users = App\User::take(50)->get();
+	foreach ($users as $user) {
+		echo "<li>".$user->fullname."</li>";
+	}
+});
