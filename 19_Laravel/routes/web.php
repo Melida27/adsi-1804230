@@ -22,3 +22,6 @@ Route::get('usuarios', function (){
 		echo "<li>".$user->fullname."</li>";
 	}
 });
+
+// Resources (Todos los métodos necesarios para un CRUD)
+Route::resource('users', 'UserController');
