@@ -44,7 +44,9 @@ class UserController extends Controller
         $user->birthdate = $request->birthdate;
         $user->gender = $request->gender;
         $user->address = $request->address;
-        $user->password = $request->password;
+        $user->email_verified_at = now();
+        $user->password = bcrypt($request->password);
+        // $user->remember_token = Str::random(10);
 
         if($user->save()) {
             return redirect('users')->with('message', 'El Usuario: '.$user->fullname.' fué adicionado con éxito');
@@ -59,7 +61,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        // dd($user);
+        return view('users.show')->with('user', $user);
     }
 
     /**
