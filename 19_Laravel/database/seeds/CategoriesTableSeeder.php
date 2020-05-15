@@ -25,5 +25,8 @@ class CategoriesTableSeeder extends Seeder
         $cat->name = 'Home';
         $cat->description = 'Home account for roughly one-third of a listing and are accompanied by property information';
         $cat->save();
+
+        //Factory
+        factory(App\Category::class, 30)->create();
     }
 }
