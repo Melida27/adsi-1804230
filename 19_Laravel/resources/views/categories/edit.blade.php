@@ -39,12 +39,12 @@
 					{{-- ******************************************************************************************************************************* --}}
 					<div class="form-group">
 						<label for="description">Descripción</label>
-						<input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ $category->description }}">
+						<textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" placeholder="Descripción">{{ old('description', $category->description) }}</textarea>
 
 						@error('description')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
 						@enderror
 					</div>
 					{{-- ******************************************************************************************************************************* --}}

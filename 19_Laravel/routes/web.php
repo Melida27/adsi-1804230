@@ -34,6 +34,8 @@ Route::get('categorias', function (){
 // Resources (Todos los métodos necesarios para un CRUD)
 Route::resource('users', 'UserController');
 Route::resource('categories', 'CategoryController');
+Route::resource('articles', 'ArticleController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -45,9 +47,13 @@ Route::get('generate/excel/users', 'UserController@excel');
 Route::get('generate/pdf/categories', 'CategoryController@pdf');
 Route::get('generate/excel/categories', 'CategoryController@excel');
 
-//Users (Import)
+Route::get('generate/pdf/articles', 'ArticleController@pdf');
+Route::get('generate/excel/articles', 'ArticleController@excel');
+
+//Imports (Excel)
 Route::post('import/excel/users', 'UserController@import');
 Route::post('import/excel/categories', 'CategoryController@import');
+Route::post('import/excel/articles', 'ArticleController@import');
 
 Route::get('redirect', function(){
 	alert()->basic('Basic Message', 'Mandatory Title')->autoclose(3500);
@@ -57,3 +63,4 @@ Route::get('redirect', function(){
 //Search AJAX
 Route::post('users/search', 'UserController@search');
 Route::post('categories/search', 'CategoryController@search');
+Route::post('articles/search', 'ArticleController@search');

@@ -23,10 +23,10 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->method('put')){
+        if($this->method() == 'PUT'){
             //Form Update
             return [
-                'name' => 'required|min:4|unique:categories',
+                'name' => 'required|min:4|unique:categories,name,'.$this->id,
                 'description' => 'required',
                 'image' => 'max:1000'
             ];

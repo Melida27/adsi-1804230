@@ -16,6 +16,16 @@ use App\Imports\CategoriesImport;
 class CategoryController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -117,7 +127,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         if ($category->delete()) {
-            return redirect()->back()->with('message', 'La categoría '.$category->name.' fue eliminada con éxito!');
+            return redirect('categories')->with('message', 'La categoría '.$category->name.' fue eliminada con éxito!');
         }
     }
 

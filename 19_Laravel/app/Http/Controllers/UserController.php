@@ -15,6 +15,16 @@ use App\Imports\UsersImport;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -130,7 +140,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if ($user->delete()) {
-            return redirect()->back()->with('message', 'El Usuario '.$user->fullname.' fue eliminado con éxito!');
+            return redirect('users')->with('message', 'El Usuario '.$user->fullname.' fue eliminado con éxito!');
         }
     }
 

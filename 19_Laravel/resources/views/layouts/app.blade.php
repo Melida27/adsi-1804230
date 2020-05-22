@@ -68,19 +68,20 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                    <a class="dropdown-item" href="{{ url('users') }}">
-                                        <i class="fa fa-users"></i> 
-                                        Módulo Usuarios
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('categories') }}">
-                                        <i class="fa fa-list"></i> 
-                                        Módulo Categorías
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('articles') }}">
-                                        <i class="fa fa-file"></i> 
-                                        Módulo Artículos
-                                    </a>
+                                    @if (Auth::user()->role == "Admin")
+                                        <a class="dropdown-item" href="{{ url('users') }}">
+                                            <i class="fa fa-users"></i> 
+                                            Módulo Usuarios
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('categories') }}">
+                                            <i class="fa fa-list"></i> 
+                                            Módulo Categorías
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('articles') }}">
+                                            <i class="fa fa-file"></i> 
+                                            Módulo Artículos
+                                        </a>
+                                    @endif
 
                                     <div class="dropdown-divider"></div>
 

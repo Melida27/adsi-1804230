@@ -7,7 +7,7 @@
 			<div class="col-md-8 offset-2">
 				<h1 class="mt-2"><i class="fa fa-plus"></i> Adicionar Categoría</h1>
 				<hr>
-				<a href="{{ url('users') }}" class="btn btn-custom">
+				<a href="{{ url('categories') }}" class="btn btn-custom">
 					<i class="fa fa-list"></i>
 					Ir a lista Categorias
 				</a>
@@ -26,7 +26,7 @@
 
 				<form action="{{ url('categories') }}" method="post" enctype="multipart/form-data">
 					@csrf
-					{{-- *************************************************************************************************************************** --}}
+					{{-- ******************************************************************************************************** --}}
 					<div class="form-group">
 						<label for="name">Nombre</label>
 						<input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" value="{{ old('name') }}">
@@ -37,10 +37,9 @@
 							</span>
 						@enderror
 					</div>
-					{{-- *************************************************************************************************************************** --}}
+					{{-- ********************************************************************************************************* --}}
 					<div class="form-group">
-						<label for="description">Descripción</label>
-						<input type="text" name="description" class="form-control  @error('description') is-invalid @enderror" value="{{ old('description') }}">
+						<textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="5" placeholder="Descripción">{{ old('description') }}</textarea>
 
 						@error('description')
 							<span class="invalid-feedback" role="alert">
@@ -48,7 +47,8 @@
 							</span>
 						@enderror
 					</div>
-					{{-- *************************************************************************************************************************** --}}
+
+					{{-- ******************************************************************************************************* --}}
 					<div class="form-group">
 						<button class="btn btn-block btn-custom btn-upload" type="button">
 							<i class="fa fa-upload"></i>
@@ -67,7 +67,7 @@
 						@enderror
 					</div>
 
-					{{-- *************************************************************************************************************************** --}}
+					{{-- *************************************************************************************************** --}}
 					
 					<div class="form-group">
 						<button type="submit" class="btn btn-custom">
