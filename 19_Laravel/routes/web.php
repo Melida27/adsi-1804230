@@ -32,11 +32,24 @@ Route::get('categorias', function (){
 });
 
 // Resources (Todos los métodos necesarios para un CRUD)
-Route::resource('users', 'UserController');
-Route::resource('categories', 'CategoryController');
-Route::resource('articles', 'ArticleController');
+Route::group(['middleware' => 'admin'], function(){
+	Route::resource('users', 'UserController');
+	Route::resource('categories', 'CategoryController');
+	Route::resource('articles', 'ArticleController');
+});
+
 
 Auth::routes();
+
+Route::get('mydata', function(){
+	$mydata = App\User::findOrFail(Auth::user()->id);
+	dd($mydata);
+});
+
+Route::get('myarticles', function(){
+	$myarts = App\Article::where('user_id', '=', Auth::user()->id);
+	dd($myarts);
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

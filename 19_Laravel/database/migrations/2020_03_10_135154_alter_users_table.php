@@ -14,7 +14,7 @@ class AlterUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table){
-            $table->string('role')->default('Customer')->after('photo');
+            $table->string('role')->default('Editor')->after('photo');
             $table->boolean('status')->default(1)->after('role');
         });
     }

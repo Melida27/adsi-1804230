@@ -42,7 +42,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $users = User::where('role', '=', 'Customer')->get();
+        $users = User::where('role', '=', 'Editor')->get();
         $cats = Category::all();
 
         return view('articles.create')
@@ -96,7 +96,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $art = Article::find($id);
-        $users = User::where('role', '=', 'Customer')->get();
+        $users = User::where('role', '=', 'Editor')->get();
         $cats = Category::all();
         return view('articles.edit')
                ->with('art', $art)

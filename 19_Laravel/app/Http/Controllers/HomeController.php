@@ -26,8 +26,10 @@ class HomeController extends Controller
     {
         if (Auth::user()->role == 'Admin'){
             return view('dashboard-admin');
-        } else if (Auth::user()->role == 'Customer'){
-            return view('dashboard-customer');
+        } else if (Auth::user()->role == 'Editor'){
+            return view('dashboard-editor');
+        } else {
+            return redirect('');
         }
     }
 }

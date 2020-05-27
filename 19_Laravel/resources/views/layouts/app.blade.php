@@ -81,6 +81,15 @@
                                             <i class="fa fa-file"></i> 
                                             Módulo Artículos
                                         </a>
+                                    @elseif (Auth::user()->role == "Editor")
+                                        <a class="dropdown-item" href="{{ url('mydata') }}">
+                                            <i class="fa fa-user"></i> 
+                                            Mis datos
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('myarticles') }}">
+                                            <i class="fa fa-file"></i> 
+                                            Mis Artículos
+                                        </a>
                                     @endif
 
                                     <div class="dropdown-divider"></div>
@@ -140,6 +149,15 @@
                     title: 'Felicitaciones',
                     text: '{{ session('message') }}',
                     icon: 'success',
+                    confirmButtonColor: '#00796b',
+                });
+            @endif
+            /* ----------------------------------------------------------------------------- */
+            @if(session('error'))
+                Swal.fire({
+                    title: 'Problemas',
+                    text: '{{ session('error') }}',
+                    icon: 'error',
                     confirmButtonColor: '#00796b',
                 });
             @endif

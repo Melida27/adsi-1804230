@@ -11,7 +11,9 @@ class Article extends Model
     	'image',
     	'content',
     	'user_id',
-    	'category_id'
+    	'category_id',
+        'slider',
+        'price'
     ];
 
     public function user(){
