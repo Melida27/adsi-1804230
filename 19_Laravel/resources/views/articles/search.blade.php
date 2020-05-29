@@ -11,6 +11,18 @@
 	</td>
 
 	<td>
+		@if($art->slider == 1)
+			<button class="btn btn-success">
+				<i class="fas fa-check-circle"></i>
+			</button>
+		@else
+			<button class="btn btn-dark">
+				<i class="fas fa-times-circle"></i>
+			</button>
+		@endif
+	</td>
+
+	<td>
 		<a href="{{ url('articles/'.$art->id )}}" class="btn btn-sm btn-custom">
 			<i class="fa fa-search"></i>
 		</a>

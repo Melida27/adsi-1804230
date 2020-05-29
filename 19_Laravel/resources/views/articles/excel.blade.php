@@ -7,6 +7,7 @@
 			<th>Imágen</th>
 			<th>Usuario</th>
 			<th>Categoría</th>
+			<th>Precio</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,6 +23,7 @@
 
 			<td>{{ $art->user->fullname}}</td>
 			<td>{{ $art->category->name}}</td>
+			<td>{{ $art->price }}</td>
 		</tr>
 		@endforeach
 	</tbody>

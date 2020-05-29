@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'HomeController@welcome');
 
 Route::get('usuarios', function (){
 	//$users = App\User::all();
@@ -41,16 +43,6 @@ Route::group(['middleware' => 'admin'], function(){
 
 Auth::routes();
 
-Route::get('mydata', function(){
-	$mydata = App\User::findOrFail(Auth::user()->id);
-	dd($mydata);
-});
-
-Route::get('myarticles', function(){
-	$myarts = App\Article::where('user_id', '=', Auth::user()->id);
-	dd($myarts);
-});
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Reports (Export)
@@ -77,3 +69,15 @@ Route::get('redirect', function(){
 Route::post('users/search', 'UserController@search');
 Route::post('categories/search', 'CategoryController@search');
 Route::post('articles/search', 'ArticleController@search');
+
+//Role Editor
+Route::get('mydata', 'UserController@mydata');
+Route::put('mydata/{id}', 'UserController@updmydata');
+
+Route::get('myarticles', 'ArticleController@myarticles');
+Route::get('editor/articles/create', 'ArticleController@edcreate');
+Route::post('editor/articles', 'ArticleController@edstore');
+Route::get('editor/articles/{id}', 'ArticleController@edshow');
+Route::put('editor/articles/{id}/edit', 'ArticleController@ededit');
+Route::put('editor/articles/{id}', 'ArticleController@edupdate');
+Route::delete('editor/articles/{id}', 'ArticleController@eddelete');

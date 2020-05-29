@@ -18,6 +18,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome-all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -25,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-custom shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Sitio Web
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -118,6 +120,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert2@9.js') }}"></script>
 
     <script>
@@ -206,6 +209,25 @@
             $('#file').change(function(event) {
                 $(this).parent().submit();
             });
+            /* ----------------------------------------------------------------------------- */
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            });
+            
             /* ----------------------------------------------------------------------------- */
         });
     </script>

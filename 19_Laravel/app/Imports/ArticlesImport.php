@@ -18,7 +18,9 @@ class ArticlesImport implements ToModel
         	'title'   => $row[0],
         	'content' => $row[1],
             'user_id' => $row[2],
-            'category_id' => $row[3]
+            'category_id' => $row[3],
+            'slider' => $row[4],
+            'price' => $row[5]
         ]);
     }
 }

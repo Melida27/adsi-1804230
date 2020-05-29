@@ -26,7 +26,7 @@
 
 				<form action="{{ url('articles') }}" method="post" enctype="multipart/form-data">
 					@csrf
-					{{-- ********************************************************************************************************* --}}
+					{{-- ***************************************************************************************** --}}
 					<div class="form-group">
 						<label for="title">Título</label>
 						<input type="text" name="title" class="form-control  @error('title') is-invalid @enderror" value="{{ old('title') }}">
@@ -38,11 +38,11 @@
 						@enderror
 					</div>
 
-					{{-- ********************************************************************************************************* --}}
+					{{-- **************************************************************************************** --}}
 					
 					<div class="form-group">
-						<label for="content">Descripción</label>
-						<textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5" placeholder="Descripción">{{ old('content') }}</textarea>
+						<label for="content">Contenido</label>
+						<textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="5" placeholder="Contenido">{{ old('content') }}</textarea>
 
 						@error('content')
 							<span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
 						@enderror
 					</div>
 
-					{{-- ******************************************************************************************************** --}}
+					{{-- *************************************************************************************** --}}
 
 					<div class="form-group">
 						<button class="btn btn-block btn-custom btn-upload" type="button">
@@ -71,7 +71,7 @@
 						@enderror
 					</div>
 
-					{{-- ****************************************************************************************************** --}}
+					{{-- ************************************************************************************** --}}
 
 					<div class="form-group">
 						<select name="user_id" class="form-control  @error('user_id') is-invalid @enderror">
@@ -88,7 +88,7 @@
 						@enderror
 					</div>
 					
-					{{-- ****************************************************************************************************** --}}
+					{{-- ************************************************************************************* --}}
 
 					<div class="form-group">
 						<select name="category_id" class="form-control  @error('category_id') is-invalid @enderror">
@@ -105,7 +105,35 @@
 						@enderror
 					</div>
 
-					{{-- ****************************************************************************************************** --}}
+					{{-- ********************************************************************************* --}}
+
+					<div class="form-group">
+						<select name="slider" class="form-control  @error('slider') is-invalid @enderror">
+							<option value="">Seleccione Importante...</option>
+							<option value="1" @if (old('slider') == 1) selected @endif>Sí</option>
+							<option value="2" @if (old('slider') == 2) selected @endif>No</option>
+						</select>
+
+						@error('slider')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+
+					{{-- ********************************************************************************* --}}
+
+					<div class="form-group">
+						<input type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" placeholder="Precio" min="1" max="100">
+
+						@error('price')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+
+					{{-- ********************************************************************************* --}}
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-custom">

@@ -63,6 +63,8 @@ class ArticleController extends Controller
         $art->content = $request->content;
         $art->user_id = $request->user_id;
         $art->category_id = $request->category_id;
+        $art->slider = $request->slider;
+        $art->price = $request->price;
 
         if($request->hasFile('image')) {
             $file = time().'.'.$request->image->extension();
@@ -118,6 +120,8 @@ class ArticleController extends Controller
         $art->content = $request->content;
         $art->user_id = $request->user_id;
         $art->category_id = $request->category_id;
+        $art->slider = $request->slider;
+        $art->price = $request->price;
 
         if($request->hasFile('image')) {
             $file = time().'.'.$request->image->extension();

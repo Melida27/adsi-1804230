@@ -53,6 +53,7 @@
 							<th>Titulo</th>
 							<th>Imagen</th>
 							<th class="d-none d-sm-table-cell">Categoría</th>
+							<th>Importante</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
@@ -67,6 +68,18 @@
 
 								<td class="d-none d-sm-table-cell">
 									<img src="{{ asset($art->category->image) }}" width="60px">
+								</td>
+
+								<td>
+									@if($art->slider == 1)
+										<button class="btn btn-success">
+											<i class="fas fa-check-circle"></i>
+										</button>
+									@else
+										<button class="btn btn-dark">
+											<i class="fas fa-times-circle"></i>
+										</button>
+									@endif
 								</td>
 
 								<td>

@@ -42,6 +42,26 @@
 							<img class="rounded-circle img-thumbnail" src="{{ asset($art->category->image) }}" width="60px">
 						</td>
 					</tr>
+
+					<tr>
+						<th>Importante: </th>
+						<td class="d-none d-sm-table-cell">
+							@if($art->slider == 1)
+								<button class="btn btn-success">
+									<i class="fas fa-check-circle"></i>
+								</button>
+							@else
+								<button class="btn btn-dark">
+									<i class="fas fa-times-circle"></i>
+								</button>
+							@endif
+						</td>
+					</tr>
+
+					<tr>
+						<th>Price: </th>
+						<td>{{ $art->price }}</td>
+					</tr>
 				</table>
 			</div>
 		</div>

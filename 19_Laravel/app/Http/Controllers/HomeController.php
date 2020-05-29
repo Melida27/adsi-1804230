@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Article;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        $this->middleware('auth', ['except' => ['welcome']]);
     }
 
     /**
@@ -31,5 +34,14 @@ class HomeController extends Controller
         } else {
             return redirect('');
         }
+    }
+
+    public function welcome(){
+        $sliders = Article::where('slider', '=', 1)->get();
+        $cats = Category::all();
+        $arts = Article::all();
+        return view('welcome')->with('sliders', $sliders)
+                              ->with('cats', $cats)
+                              ->with('arts', $arts);
     }
 }
