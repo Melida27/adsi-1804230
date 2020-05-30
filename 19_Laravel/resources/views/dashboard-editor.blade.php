@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Escritorio - Cliente')
+@section('title', 'Escritorio - Editor')
 
 @section('content')
 <div class="container">

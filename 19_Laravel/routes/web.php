@@ -70,6 +70,9 @@ Route::post('users/search', 'UserController@search');
 Route::post('categories/search', 'CategoryController@search');
 Route::post('articles/search', 'ArticleController@search');
 
+//Filter AJAX
+Route::post('artsbycat', 'HomeController@artsbycat');
+
 //Role Editor
 Route::get('mydata', 'UserController@mydata');
 Route::put('mydata/{id}', 'UserController@updmydata');
@@ -78,6 +81,6 @@ Route::get('myarticles', 'ArticleController@myarticles');
 Route::get('editor/articles/create', 'ArticleController@edcreate');
 Route::post('editor/articles', 'ArticleController@edstore');
 Route::get('editor/articles/{id}', 'ArticleController@edshow');
-Route::put('editor/articles/{id}/edit', 'ArticleController@ededit');
+Route::get('editor/articles/{id}/edit', 'ArticleController@ededit');
 Route::put('editor/articles/{id}', 'ArticleController@edupdate');
 Route::delete('editor/articles/{id}', 'ArticleController@eddelete');

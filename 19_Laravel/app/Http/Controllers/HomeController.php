@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         //$this->middleware('auth');
-        $this->middleware('auth', ['except' => ['welcome']]);
+        $this->middleware('auth', ['except' => ['welcome', 'artsbycat']]);
     }
 
     /**
@@ -43,5 +43,21 @@ class HomeController extends Controller
         return view('welcome')->with('sliders', $sliders)
                               ->with('cats', $cats)
                               ->with('arts', $arts);
+    }
+
+    public function artsbycat(Request $request){
+        if ($request->idcat == 0) {
+            //All Categories
+            $cats = Category::all();
+            $arts = Article::all();
+            return view('artsbycat')->with('cats', $cats)
+                                    ->with('arts', $arts);
+        }else{
+            //Art by Cat
+            $cat = Category::where('id', '=', $request->idcat)->first();
+            $arts = Article::where('category_id', '=', $request->idcat)->get();
+            return view('artsbycat')->with('cat', $cat)
+                                    ->with('arts', $arts);
+        }
     }
 }

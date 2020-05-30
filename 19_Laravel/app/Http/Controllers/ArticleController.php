@@ -12,6 +12,8 @@ use App\Article;
 use App\User;
 use App\Category;
 
+use Auth;
+
 class ArticleController extends Controller
 {
     /**
@@ -174,5 +176,76 @@ class ArticleController extends Controller
         $file = $request->file('file');
         \Excel::import(new ArticlesImport, $file);
         return redirect()->back()->with('message', 'Los artículos se importaron con éxito!');
+    }
+
+    //My Articles
+
+    public function myarticles(){
+        $arts = Article::where('user_id', '=', Auth::user()->id)->paginate(20);
+        return view('editor.index')->with('arts', $arts);
+    }
+
+    public function edcreate(){
+        $cats = Category::all();
+        return view('editor.create')->with('cats', $cats);
+    }
+
+    public function edstore(ArticleRequest $request){
+        $art = new Article;
+        $art->title = $request->title;
+        $art->content = $request->content;
+        $art->user_id = $request->user_id;
+        $art->category_id = $request->category_id;
+        $art->slider = $request->slider;
+        $art->price = $request->price;
+
+        if($request->hasFile('image')) {
+            $file = time().'.'.$request->image->extension();
+            $request->image->move(public_path('imgs'), $file);
+            $art->image = "imgs/".$file;
+        }
+
+        if($art->save()){
+            return redirect('myarticles')->with('message', 'El artículo: '.$art->title.' fué adicionado con Éxito!');
+        }
+    }
+
+    public function edshow($id){
+        $art = Article::find($id);
+        return view('editor.show')->with('art', $art);
+    }
+
+    public function ededit($id){
+        $art = Article::find($id);
+        $cats = Category::all();
+        return view('editor.edit')->with('art', $art)
+                                  ->with('cats', $cats);
+    }
+
+    public function edupdate(ArticleRequest $request, $id){
+        $art = Article::find($id);
+        $art->title = $request->title;
+        $art->content = $request->content;
+        $art->user_id = $request->user_id;
+        $art->category_id = $request->category_id;
+        $art->slider = $request->slider;
+        $art->price = $request->price;
+
+        if($request->hasFile('image')) {
+            $file = time().'.'.$request->image->extension();
+            $request->image->move(public_path('imgs'), $file);
+            $art->image = "imgs/".$file;
+        }
+
+        if($art->save()){
+            return redirect('myarticles')->with('message', 'El artículo: '.$art->title.' fué modificado con Éxito!');
+        }
+    }
+
+    public function eddelete($id){
+        $art = Article::find($id);
+        if($art->delete()){
+            return redirect('myarticles')->with('message', 'El Artículo: '.$art->title.' fué eliminado con éxito');
+        }
     }
 }

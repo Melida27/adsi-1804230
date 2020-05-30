@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
@@ -170,5 +171,31 @@ class UserController extends Controller
         $file = $request->file('file');
         \Excel::import(new UsersImport, $file);
         return redirect()->back()->with('message', 'Los usuarios se importaron con éxito!');
+    }
+
+    public function mydata(){
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        return view('users.mydata')->with('user', $user);
+    }
+
+    public function updmydata(UserRequest $request, $id){
+        $user = User::find($id);
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->birthdate = $request->birthdate;
+        $user->address = $request->address;
+        $user->updated_at = now();
+
+        if($request->hasFile('photo')) {
+            $file = time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('imgs'), $file);
+            $user->photo = "imgs/".$file;
+        }
+
+        if($user->save()) {
+            return redirect('home')->with('message', 'Sus datos se modificaron con éxito');
+        }
     }
 }
