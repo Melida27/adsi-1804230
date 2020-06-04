@@ -14,6 +14,8 @@
 								<small class="text-muted">{{ $cat->name }}</small>
 							</p>
 							<h5>{{ $art->title }}</h5>
+							<h5><i class="fas fa-dollar-sign"></i>{{$art->price}}</h5>
+                            <button type="button" class="btn btn-outline-secondary btn-block"><i class="fa fa-plus-circle"></i> Comprar</button>
 						</div>
 					</div>
 				</div>
@@ -37,6 +39,8 @@
 									<small class="text-muted">{{ $cat->name }}</small>
 								</p>
 								<h5>{{ $art->title }}</h5>
+								<h5><i class="fas fa-dollar-sign"></i>{{$art->price}}</h5>
+                                <button type="button" class="btn btn-outline-secondary btn-block"><i class="fa fa-plus-circle"></i> Comprar</button>
 							</div>
 						</div>
 					</div>
