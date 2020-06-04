@@ -12,18 +12,21 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-        	'name' => 'Technology', 
-        	'description' => 'The simplest form of technology is the development and use of basic tools.'
+        	'name' => 'Xbox', 
+        	'description' => 'Es una videoconsola de sobremesa de sexta generación producida por Microsoft y la primera de esta empresa, en colaboración con Intel.',
+            'image' => 'imgs/1590719323.png'
         ]);
 
         $cat = new App\Category;
-        $cat->name = 'Sport';
-        $cat->description = 'Sport is commonly defined as an athletic activity that involves a degree of competition';
+        $cat->name = 'Play Station';
+        $cat->description = 'Es el nombre de una serie de consolas de videojuegos creadas y desarrolladas por Sony Interactive Entertainment.';
+        $cat->image = 'imgs/1590719410.png';
         $cat->save();
 
         $cat = new App\Category;
-        $cat->name = 'Home';
-        $cat->description = 'Home account for roughly one-third of a listing and are accompanied by property information';
+        $cat->name = 'Nintendo Switch';
+        $cat->description = 'Es la novena consola de videojuegos principal desarrollada por Nintendo. Conocida en el desarrollo por su nombre código «NX», se dio a conocer en octubre de 2016 y fue lanzada mundialmente el 3 de marzo de 2017.';
+        $cat->image = 'imgs/1590719480.png';
         $cat->save();
         
     }
