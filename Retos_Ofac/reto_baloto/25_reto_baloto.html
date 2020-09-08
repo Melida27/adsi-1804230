@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto Aleatorio (Baloto)</title>
+	<style>
+		body{
+			background: url(imgs/baloto/bg_baloto.jpg) no-repeat center;
+			margin: 0px;
+			height: 620px;
+		}
+		img{
+			display: block;
+			margin: 40px auto;
+			width: 250px;
+		}
+		section#acumulado{
+			background: url(imgs/baloto/acumulado.png) no-repeat center;
+			width: 465px;
+			height: 211px;
+			margin: 40px auto;
+		}
+		ul.balls {
+			width: 1100px;
+			margin-left: 180px;
+			padding: 0px;
+			list-style: none;
+		}
+		ul.balls li.ball {
+			width: 100px;
+			text-align: center;
+			font: 3em Arial;
+			line-height: 2.2em;
+			height: 106px;
+			display: inline-block;
+			margin-left: 50px;
+			position: relative;
+			top: -550px;
+			background: transparent url(imgs/baloto/bg_balota1.png) no-repeat center;
+		}
+		ul.balls li.balls {
+			background: transparent url(imgs/baloto/bg_balota2.png) no-repeat center;
+			color: white;
+		}
+		button#btnPlay {
+			display: block;
+			width: 200px;
+			margin: 25px auto;
+			padding: 15px;
+			border: 1px solid #330201;
+			border-radius: 25px;
+			background-color: #C50B06;
+			color: white;
+			transition: all 0.5s ease-in;
+			font-size: 1.2em;
+		}
+		button#btnPlay:hover{
+			color: yellow;
+			cursor: pointer;
+			transform: scale(1.1);
+			background-color: #6F0805;
+		}
+		ul.balls li.animBall{
+			animation: animBall 1s 1 forwards;
+		}
+		@keyframes animBall{
+			0%   { top: -550px;}
+			40%  { top: 0px;   }
+			50%  { top: -80px; }
+			60%  { top: 0px;   }
+			70%  { top: -60px; }
+			80%  { top: 0px;   }
+			90%  { top: -40px; }
+			100% { top: 0px;   }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<img src="imgs/baloto/logo_baloto.png" alt="">
+		<section id="acumulado"></section>
+		<ul class="balls">
+			<li class="ball ball1"></li>
+			<li class="ball ball2"></li>
+			<li class="ball ball3"></li>
+			<li class="ball ball4"></li>
+			<li class="ball ball5"></li>
+			<li class="ball balls"></li>
+		</ul>
+		<button id="btnPlay">JUGAR</button>
+	</main>
+
+	<script>
+		//Variables
+		var btnPlay = document.getElementById('btnPlay');
+		var balls = document.getElementsByClassName('ball');
+		var rball = 0;
+
+		//Eventos
+		btnPlay.onclick = function(){
+			for(var i = 0; i < balls.length; i++){
+				rball = Math.round(Math.random()*45);
+
+				if(i < 5){
+					balls[i].innerHTML = rball;
+				}else {
+					rball = Math.round(Math.random()*16);
+					balls[i].innerHTML = rball;
+				}
+
+				balls[i].classList.remove('animBall');
+				this.setAttribute("disabled", "disabled");
+				animAllBalls();
+			}
+		}
+
+		//Functiones
+		function animAllBalls(){
+			var cont = 0;
+			var sint = setInterval(function(){
+				if(cont < 6){
+					balls[cont].classList.add('animBall');
+				}else{
+					btnPlay.removeAttribute("disabled");
+					clearInterval(sint);
+				}
+				cont++;
+			}, 800);
+		}
+	</script>
+</body>
+</html>  

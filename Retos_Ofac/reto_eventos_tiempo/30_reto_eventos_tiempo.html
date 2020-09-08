@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reto (Eventos Tiempo)</title>
+	<style>
+		/*section.start*/
+		section.start {
+			background-color: rgba(0,0,0,.8);
+			position: fixed;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			z-index: 999;
+		}
+		section.start input{
+			display: block;
+			top: 50%;
+			padding: 10px;
+			border: none;
+			border-radius: 20px;
+			position: relative;
+			margin: 0px auto;
+			width: 260px;
+			transform: translateY(-50%);
+			font-size: 1em;
+			text-transform: uppercase;
+			text-align: center;
+		}
+		section.start button{
+			top: 52%;
+			display: block;
+			margin: 0px auto;
+			position: relative;
+			transform: translateY(-50%);
+			background-color: #d670aa;
+			padding: 10px;
+			border-radius: 20px;
+			border: none;
+			width: 250px;
+			font-size: 1em;
+			text-transform: uppercase;
+		}
+		section.start button:hover{
+			cursor: pointer;
+		}
+
+		/*//End game*/
+		section.end button{
+			top: 52%;
+			display: block;
+			margin: 0px auto;
+			position: relative;
+			transform: translateY(-50%);
+			background-color: #d670aa;
+			padding: 10px;
+			border-radius: 20px;
+			border: none;
+			width: 250px;
+			font-size: 1em;
+			text-transform: uppercase;
+		}
+		section.end button:hover{
+			cursor: pointer;
+		}
+		section.end {
+			background-color: rgba(0,0,0,.8);
+			position: fixed;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			z-index: 999;
+		}
+		section.end h3{
+			display: block;
+			top: 50%;
+			padding: 10px;
+			border: none;
+			border-radius: 20px;
+			position: relative;
+			margin: 0px auto;
+			width: 500px;
+			transform: translateY(-50%);
+			font-size: 30px;
+			text-transform: uppercase;
+			text-align: center;
+			color: white;
+			font-family: verdana;
+
+		}
+		/*main.game*/
+		main.game{
+			width: 860px;
+			margin: 20px auto;
+		}
+		main.game header{
+			background: url(imgs/hungrypig/header.png) no-repeat center;
+			height: 108px;
+		}
+		main.game aside{
+			height: 602px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		/* aside left */
+		aside.left {
+			width: 602px;
+			margin-top: 42px;
+			position: relative;
+		}
+		main.game aside.left section.table{
+			background: url(imgs/hungrypig/table.png) no-repeat center;
+			height: 600px;
+		}
+		/*aside.right*/
+		aside.right {
+			margin-left: 43px;
+			width: 202px;
+		}
+		aside.right section {
+			margin-top: 42px;
+		}
+		aside.right section.info{
+			position: relative;
+			width: 202px;
+			height: 202px;
+			background: url(imgs/hungrypig/options.png) no-repeat center;
+		}
+		aside.right section.info div{
+			position: absolute;
+			right: 40px;
+			font: 1.08em Arial;
+			color: #000;
+		}
+		aside.right section.info div#time{
+			top: 40px;
+		}
+		aside.right section.info div#score{
+			top: 140px;
+		}
+		aside.right section.bestscores{
+			width: 202px;
+			position: relative;
+			height: 301px;
+			background: url(imgs/hungrypig/score.png) no-repeat center;
+		}
+		aside.right section.bestscores ul.list {
+			padding: 0px;
+			margin: 0px;
+			list-style: none;
+			position: absolute;
+			top: 87px;
+			left: 40px;
+			width: 300px;
+		}
+		aside.right section.bestscores ul.list li{
+			margin: 0px 0px 29px 0px;
+			font: 1em Arial;
+			color: #c55198;
+			text-transform: uppercase;
+		}
+		aside.left section.table div#pig {
+			background: transparent url(imgs/hungrypig/pig.png) no-repeat center;
+			height: 100px;
+			position: absolute;
+			top: 0px; 
+			left: 0px;
+			transition: all 0.1s;
+			width: 100px;
+		}
+		section.table div.food {
+			background: transparent no-repeat center;
+			height: 100px;
+			position: absolute;
+			top: 0px; 
+			left: 0px;
+			transition: all 0.15s;
+			width: 100px;
+			/* ---- */
+			animation: 1s animFood infinite;
+		}
+		section.table div.food.apple{
+			background-image: url(imgs/hungrypig/apple.png);
+		}
+		section.table div.food.banana{
+			background-image: url(imgs/hungrypig/banana.png);
+		}
+		section.table div.food.burguer{
+			background-image: url(imgs/hungrypig/burguer.png);
+		}
+		section.table div.food.chicken{
+			background-image: url(imgs/hungrypig/chicken.png);
+		}
+		section.table div.food.fish{
+			background-image: url(imgs/hungrypig/fish.png);
+		}
+		section.table div.food.icecream{
+			background-image: url(imgs/hungrypig/icecream.png);
+		}
+		section.table div.food.meat{
+			background-image: url(imgs/hungrypig/meat.png);
+		}
+		section.table div.food.soup{
+			background-image: url(imgs/hungrypig/soup.png);
+		}
+		section.table div.food.salad{
+			background-image: url(imgs/hungrypig/salad.png);
+		}
+		section.table div.food.dona{
+			background-image: url(imgs/hungrypig/dona.png);
+		}
+		section.table div.food.hotdog{
+			background-image: url(imgs/hungrypig/hotdog.png);
+		}
+		@keyframes animFood {
+			0%, 100% {transform: rotateY(0deg);}
+			50%      {transform: rotateY(180deg);}
+		}
+	</style>
+</head>
+<body>
+	<section class="start">
+		<input type="text" id="player" placeholder="Nombre del jugador">
+		<button id="btnPlay">Play</button>
+	</section>
+	<section class="end" id="alertEnd">
+		<h3 id="messageEnd"></h3>
+		<button id="btnEnd">Cerrar</button>
+	</section>
+	<main class="game">
+		<header></header>
+		<aside class="left">
+			<section class="table">
+				<div id="pig"></div>
+				<div class="food"></div>
+				<div class="food"></div>
+				<div class="food"></div>
+			</section>
+		</aside>
+		<aside class="right">
+			<section class="info">
+				<div id="time">30s</div>
+				<div id="score">90</div>
+			</section>
+			<section class="bestscores">
+				<ul class="list" id="list">
+
+				</ul>
+			</section>
+		</aside>
+	</main>
+
+	<script>
+		// Variables
+		var pig  = document.getElementById('pig');
+		var time = document.getElementById('time');
+		var btnPlay = document.getElementById('btnPlay');
+		var foods = document.getElementsByClassName('food');
+		var listUsers = document.getElementById('list');
+		var alertEnd = document.getElementById('alertEnd');
+		var messageEnd = document.getElementById('messageEnd');
+		var btnEnd = document.getElementById('btnEnd');
+		var ps   = [0, 100, 200, 300, 400, 500];
+		var food = ['apple', 'banana', 'burguer', 'chicken', 'fish', 'icecream', 'meat', 'soup', 'salad', 'dona', 'hotdog'];
+		var users = [];
+		var psX = 0;
+		var psY = 0;
+		var score = 0;
+		var displayScore = document.getElementById('score');
+
+		alertEnd.style.display = "none";
+
+		//Eventos
+		btnPlay.onclick = function(){
+			var player = document.getElementById('player').value;
+			if(player.length > 0){
+
+				this.parentElement.style.display = "none";
+				initGame();
+			}else{
+				alert("Debe ingresar el nombre del jugador");
+			}
+		}
+
+		btnEnd.onclick = function(){
+			window.location.replace('30_reto_eventos_tiempo.html');
+		}
+
+		// Funciones
+		function initGame() {
+			randomPig();
+			gameTime();
+			movePig();
+			var irf = setInterval(randomFood, 1000);
+			displayScore.innerText = score;
+
+			users = JSON.parse(localStorage.getItem("users"));
+
+           if(users != null){
+           	ordenarArray(users);
+           	for(let i = 0; i < 5; i++){
+           		var elementUser = document.createElement('li');
+           		elementUser.innerHTML = users[i].nombre + "(" + users[i].puntaje+")";
+           		listUsers.appendChild(elementUser); 
+           	}
+           }else {
+           	users = [];
+           }
+
+
+
+
+       }
+       function randomPig() {
+       	psX = randomPosition();
+       	psY = randomPosition();
+       	pig.style.top  = psY+"px";
+       	pig.style.left = psX+"px";
+       }
+       function randomPosition() {
+       	var rnd = Math.round(Math.random()*ps.length);
+       	return ps[rnd];
+       }
+       function gameTime(){
+       	var ct = 30;
+       	var igt = setInterval(function(){
+       		if(ct == 0){
+					//EndGame
+					time.innerHTML = ct;
+					clearInterval(igt);
+					endGame();
+					
+				}else{
+					time.innerHTML = ct;
+				}
+				ct--;
+			},1000);
+       }
+       function movePig(){
+       	document.onkeydown = function(evt){
+       		switch(evt.keyCode){
+					//Left
+					case 37:
+						//console.log("Left");
+						if(psX > 0){
+							psX -= 100;
+							pig.style.left = psX+"px";
+						}
+						break;
+					//Up
+					case 38:
+						//console.log("Up");
+						if(psY > 0){
+							psY -= 100;
+							pig.style.top = psY+"px";
+						}
+						break;
+					//Right
+					case 39:
+						//console.log("Right");
+						if(psX < 500){
+							psX += 100;
+							pig.style.left = psX+"px";
+						}
+						break;
+					//Down
+					case 40:
+						//console.log("Down");
+						if(psY < 500){
+							psY += 100;
+							pig.style.top = psY+"px";
+						}
+						break;	
+					}
+
+
+				}
+			}
+			function randomFood(){
+				for( var i = 0; i < 3; i++){
+					var rfood = Math.round(Math.random()*food.length);
+					foods[i].className = 'food';
+					foods[i].classList.add(food[rfood]);
+					foods[i].style.top  = randomPosition()+"px";
+					foods[i].style.left = randomPosition()+"px";
+				}
+				for(let i = 0; i < foods.length;i++){
+					checkCollision(foods[i],pig);
+				}
+
+			}
+			function endGame(){
+				var nameUser = player.value;
+				var scoreUser = score;
+				var newUser = {"nombre": nameUser, "puntaje": scoreUser};
+                
+                
+
+				users.push(newUser);
+				localStorage.setItem("users",JSON.stringify(users));
+
+				messageEnd.innerHTML = player.value + " ( "+score+" )";
+				alertEnd.style.display = "block";
+				// window.location.replace('30_reto_eventos_tiempo.html');
+			}
+
+			function checkCollision(food,pig) {
+				foodtop    = food.offsetTop;
+				foodleft   = food.offsetLeft;
+				foodright  = Number(food.offsetLeft) + Number(food.offsetWidth);
+				foodbottom = Number(food.offsetTop)  + Number(food.offsetHeight);
+
+				pigtop    = pig.offsetTop;
+				pigleft   = pig.offsetLeft;
+				pigright  = Number(pig.offsetLeft) + Number(pig.offsetWidth);
+				pigbottom = Number(pig.offsetTop)  + Number(pig.offsetHeight);
+
+				if (pigright  > foodleft   && pigleft   < foodright  && pigtop    < foodbottom && pigbottom > foodtop){
+					score = score + 10;
+					displayScore.innerHTML = score;
+					console.log('collision');
+				}
+			}
+
+
+			function ordenarArray(x){
+				for (var i = 0; i < x.length - 1; i++) {
+					for (var j = i + 1; j < x.length; j++) {
+
+						if (x[i].puntaje < x[j].puntaje) {
+							aux = x[i];
+							x[i] = x[j];
+							x[j] = aux;
+
+						}
+					}
+				}
+				console.log("order", x);
+			}
+
+		</script>
+	</body>
+	</html>
